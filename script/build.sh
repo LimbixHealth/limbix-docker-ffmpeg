@@ -13,7 +13,9 @@ git clone --depth 1 https://github.com/mulx/aacgain.git
 git clone https://github.com/facebook/transform360.git 
 
 # Build Transform360
-cd /usr/local/src/transform360/Transform360/
+cd /usr/local/src/transform360/
+git checkout b3184c86b1b6ff6da8b71422d148b71d0c314e04
+cd Transform360/
 cmake ./
 make -j $(nproc)
 make install
