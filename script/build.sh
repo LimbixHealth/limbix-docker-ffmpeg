@@ -8,7 +8,6 @@ git clone --depth 1 https://github.com/l-smash/l-smash
 hg clone https://bitbucket.org/multicoreware/x265
 git clone --depth 1 git://github.com/mstorsjo/fdk-aac.git
 git clone --depth 1 git://source.ffmpeg.org/ffmpeg
-git clone https://git.xiph.org/opus.git
 git clone --depth 1 https://github.com/mulx/aacgain.git
 git clone https://github.com/facebook/transform360.git 
 
@@ -56,16 +55,9 @@ autoreconf -fiv
 make -j $(nproc)
 make install
 
-# Build libopus
-cd /usr/local/src/opus
-./autogen.sh
-./configure --disable-shared
-make -j $(nproc)
-make install
-
-# Build ffmpeg
+# Build ffmpeg.
 cd /usr/local/src/ffmpeg
-./configure --extra-libs="-ldl" --enable-gpl --enable-libass --enable-libfdk-aac --enable-libmp3lame --enable-libopus --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --enable-nonfree --enable-libopencv --extra-libs='-lTransform360 -lstdc++'
+./configure --extra-libs="-ldl" --enable-gpl --enable-libass --enable-libfdk-aac --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --enable-nonfree --enable-libopencv --extra-libs='-lTransform360 -lstdc++'
 make -j $(nproc)
 make install
 
