@@ -24,8 +24,7 @@ cp vf_transform360.c /usr/local/src/ffmpeg/libavfilter/
 cd /usr/local/src/ffmpeg/
 
 # Register Transform360 in libavfilter (insert before AVBENCH)
-sed -i '/REGISTER_FILTER(ABENCH,/ i\
-REGISTER_FILTER(TRANSFORM360, transform360, vf);' libavfilter/allfilters.c
+sed -i '/extern AVFilter ff_af_abench;/i extern AVFilter ff_vf_transform360;' libavfilter/allfilters.c
 
 # Add Transform360 to libavfilter makefile (insert before ALPHAEXTRACT)
 sed -i '/CONFIG_ALPHAEXTRACT_FILTER/ i\
