@@ -13,7 +13,7 @@ git clone https://github.com/facebook/transform360.git
 
 # Build Transform360
 cd /usr/local/src/transform360/
-git checkout b3184c86b1b6ff6da8b71422d148b71d0c314e04
+git checkout 0f28a31160bf109be62283c1957488996ebef289
 cd Transform360/
 cmake ./
 make -j $(nproc)
