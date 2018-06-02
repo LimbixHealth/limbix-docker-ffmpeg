@@ -7,7 +7,8 @@ cd /usr/local/src
 git clone --depth 1 https://github.com/l-smash/l-smash
 hg clone https://bitbucket.org/multicoreware/x265
 git clone --depth 1 git://github.com/mstorsjo/fdk-aac.git
-git clone --depth 1 git://source.ffmpeg.org/ffmpeg
+#git clone --depth 1 git://source.ffmpeg.org/ffmpeg
+git clone --depth 1 https://github.com/FFmpeg/FFmpeg.git
 git clone --depth 1 https://github.com/mulx/aacgain.git
 git clone https://github.com/facebook/transform360.git 
 
@@ -19,9 +20,10 @@ cmake ./
 make -j $(nproc)
 make install
 
-# Add transform360 cc to ffmpeg
-cp vf_transform360.c /usr/local/src/ffmpeg/libavfilter/
-cd /usr/local/src/ffmpeg/
+# Add transform360 cc to FFmpeg
+ls /usr/local/src/
+cp vf_transform360.c /usr/local/src/FFmpeg/libavfilter/
+cd /usr/local/src/FFmpeg/
 
 # Register Transform360 in libavfilter (insert before AVBENCH)
 sed -i '/extern AVFilter ff_af_abench;/i extern AVFilter ff_vf_transform360;' libavfilter/allfilters.c
@@ -55,7 +57,7 @@ make -j $(nproc)
 make install
 
 # Build ffmpeg.
-cd /usr/local/src/ffmpeg
+cd /usr/local/src/FFmpeg
 ./configure --extra-libs="-ldl" --enable-gpl --enable-libass --enable-libfdk-aac --enable-libmp3lame --enable-libtheora --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --enable-nonfree --enable-libopencv --extra-libs='-lTransform360 -lstdc++'
 make -j $(nproc)
 make install
