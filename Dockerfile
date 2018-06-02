@@ -10,6 +10,7 @@ RUN apt-get update && \
         git \
         mercurial \
         cmake \
+        hugin \
         libass-dev \
         libgpac-dev \
         libtheora-dev \
