@@ -9,7 +9,7 @@ hg clone https://bitbucket.org/multicoreware/x265
 git clone --depth 1 git://github.com/mstorsjo/fdk-aac.git
 #git clone --depth 1 git://source.ffmpeg.org/ffmpeg
 git clone --depth 1 https://github.com/FFmpeg/FFmpeg.git
-git clone --depth 1 https://github.com/mulx/aacgain.git
+git clone --depth 1 https://gitlab.com/mulx/aacgain.git
 git clone https://github.com/facebook/transform360.git 
 
 # Build Transform360
