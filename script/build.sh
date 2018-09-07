@@ -6,7 +6,15 @@ mkdir -p /usr/local/src
 cd /usr/local/src
 git clone --depth 1 https://github.com/l-smash/l-smash
 hg clone https://bitbucket.org/multicoreware/x265
-git clone --depth 1 git://github.com/mstorsjo/fdk-aac.git
+
+#Check out a specific version of fdk-aac since it has changes not yet incorporated into ffmpeg
+#See: https://github.com/mstorsjo/fdk-aac/issues/93
+git clone git://github.com/mstorsjo/fdk-aac.git
+cd fdk-aac
+#the commit immediately before the broken one:
+git reset --hard b95b15e~1
+cd ..
+
 #git clone --depth 1 git://source.ffmpeg.org/ffmpeg
 git clone --depth 1 https://github.com/FFmpeg/FFmpeg.git
 git clone --depth 1 https://gitlab.com/mulx/aacgain.git
